@@ -1,0 +1,410 @@
+
+/* ==========================================
+   🩷 APP.CSS - PÁGINA MÁGICA DE PERSONAJES
+   ========================================== */
+
+/* CONTENEDOR PRINCIPAL */
+
+.contenedor {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px clamp(14px, 4vw, 48px);
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+  position: relative;
+  padding: 30px 20px;
+  margin-bottom: 25px;
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+
+  box-shadow: 0 10px 30px rgba(180, 145, 210, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.encabezado h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 850;
+  letter-spacing: 0.5px;
+
+  background: linear-gradient(
+    90deg,
+    #e68cbd,
+    #8da8e8,
+    #69bce8,
+    #d6a1df
+  );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.encabezado p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #827593;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* DECORACIÓN DEL ENCABEZADO */
+
+.encabezado h1::before {
+  content: "✧ ";
+}
+
+.encabezado h1::after {
+  content: " ✧";
+}
+
+/* CUADRÍCULA DE PERSONAJES */
+
+.personajes-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 220px), 1fr)
+  );
+
+  gap: 24px;
+  width: 100%;
+  margin: 25px auto;
+  align-items: stretch;
+}
+
+/* TARJETAS */
+
+.personaje-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid #f5e5f2;
+  border-radius: 24px;
+
+  box-shadow: 0 8px 25px rgba(164, 133, 192, 0.15);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* PEQUEÑA ESTRELLA DECORATIVA */
+
+.personaje-card::after {
+  content: "✧";
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  z-index: 2;
+
+  color: #e99cc9;
+  font-size: 23px;
+  pointer-events: none;
+}
+
+/* EFECTO AL PASAR EL RATÓN */
+
+.personaje-card:hover {
+  transform: translateY(-7px);
+  border-color: #e9b4d9;
+
+  box-shadow:
+    0 16px 35px rgba(170, 143, 205, 0.22),
+    0 5px 15px rgba(238, 172, 211, 0.15);
+}
+
+/* CONTENEDOR DE IMAGEN */
+
+.personaje-imagen-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 175px;
+  padding: 10px;
+
+  background: linear-gradient(
+    145deg,
+    #fff0f7,
+    #eaf6ff,
+    #f2eaff
+  );
+
+  border-bottom: 1px solid #eeddf0;
+}
+
+/* IMÁGENES PEQUEÑAS Y COMPLETAS */
+
+.personaje-imagen {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 12px;
+
+  transition: transform 0.35s ease;
+}
+
+.personaje-card:hover .personaje-imagen {
+  transform: scale(1.04);
+}
+
+/* INFORMACIÓN DE CADA PERSONAJE */
+
+.personaje-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  padding: 16px;
+}
+
+.personaje-info h2 {
+  margin: 0 0 8px;
+  color: #9878b8;
+  font-size: 1.2rem;
+  font-weight: 800;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.personaje-info p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 11px;
+  margin: 0;
+
+  color: #746783;
+  font-size: 0.88rem;
+  line-height: 1.5;
+
+  background: linear-gradient(
+    100deg,
+    #fff0f7,
+    #edf7ff
+  );
+
+  border: 1px solid #f0e2f3;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.personaje-info p strong {
+  color: #a56fae;
+}
+
+/* DATOS EN DOS COLUMNAS */
+
+.personaje-datos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  padding: 12px;
+}
+
+.personaje-datos p {
+  padding: 9px;
+  margin: 0;
+
+  color: #746783;
+  font-size: 0.85rem;
+
+  background: linear-gradient(
+    120deg,
+    #fff0f7,
+    #edf7ff
+  );
+
+  border: 1px solid #f0e2f3;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+/* LISTAS DE INFORMACIÓN */
+
+.personaje-lista {
+  margin-top: 15px;
+  padding: 0 16px 16px;
+  text-align: left;
+}
+
+.personaje-lista h3 {
+  margin-bottom: 10px;
+  color: #d477ac;
+  font-size: 1rem;
+}
+
+.personaje-lista ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.personaje-lista li {
+  margin-bottom: 7px;
+  color: #756784;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+/* ENLACES */
+
+.personaje-enlace {
+  display: inline-block;
+  align-self: center;
+
+  margin: 12px 0 18px;
+  padding: 10px 20px;
+
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+
+  background: linear-gradient(
+    100deg,
+    #e89bc8,
+    #88bde9
+  );
+
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(188, 151, 209, 0.3);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.personaje-enlace:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 16px rgba(188, 151, 209, 0.4);
+}
+
+/* ESTADO SIN IMAGEN */
+
+.sin-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 175px;
+  padding: 20px;
+
+  color: #9978bd;
+  text-align: center;
+
+  background: linear-gradient(
+    145deg,
+    #fff0f7,
+    #eaf6ff
+  );
+}
+
+/* MENSAJES DE CARGA Y ERROR */
+
+.mensaje {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 50vh;
+  padding: 20px;
+
+  color: #9a83c5;
+  font-weight: 700;
+  text-align: center;
+}
+
+.mensaje.error {
+  color: #d96f9f;
+}
+
+/* DISEÑO PARA TABLETS */
+
+@media (max-width: 768px) {
+  .contenedor {
+    padding: 20px 14px;
+  }
+
+  .personajes-grid {
+    gap: 16px;
+  }
+
+  .personaje-imagen-contenedor {
+    height: 155px;
+  }
+
+  .encabezado {
+    padding: 24px 14px;
+  }
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 16px 10px;
+  }
+
+  .personajes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .personaje-imagen-contenedor {
+    height: 130px;
+    padding: 6px;
+  }
+
+  .personaje-info {
+    padding: 10px;
+    gap: 7px;
+  }
+
+  .personaje-info h2 {
+    font-size: 1rem;
+  }
+
+  .personaje-info p,
+  .personaje-datos p {
+    font-size: 0.75rem;
+    padding: 7px;
+  }
+
+  .personaje-datos {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 8px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
